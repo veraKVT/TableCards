@@ -1,0 +1,99 @@
+table{
+    width: 100%;
+    font-family:'Inter', sans-serif;    
+    box-shadow: 0 0 0 2px #6b6f7b;
+    border-radius: 30px;
+    border-collapse: collapse;
+}
+
+thead{
+    border-collapse: collapse;
+    border-bottom: 2px solid #D9D9D9;
+}
+
+.under{
+    font-size: 14px;
+    color: #6B6F7B;
+    font-weight: 600;
+    vertical-align: text-top;
+ }
+
+.main{
+    color: #313A4E;
+    font-size: 16px;
+    font-weight: 600;
+    vertical-align: bottom;
+}
+
+th{
+    font-size: 18px;
+    font-weight: 500;
+    color:#6B6F7B;
+}
+.head-block{
+    height: 89px;
+    text-align: left;
+}
+
+.foot-block{
+    height: 89px;
+}
+
+.main, .under{
+    height: 45px;
+}
+.dot{
+    padding: 5px 10px 5px 30px;
+}
+
+.kvadro{
+    padding: 5px 15px 5px 15px;
+}
+
+.status{
+    font-size: 16px;
+    font-weight: 500;
+    color: #17E383;
+}
+
+.status1{
+    font-size: 16px;
+    font-weight: 500;
+    color: #FF9548;
+}
+.date{
+    font-size: 16px;
+    font-weight: 500;
+    color: #313A4E;
+}
+
+.total{
+    font-size: 20px;
+    font-weight: 500;
+    color: #313A4E;
+}
+
+.foot-block{
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 5px;
+}
+
+.footnum{
+    width: 49px;
+    height: 49px;
+    border: 1px solid #6B6F7B;         
+    border-radius: 48px;
+    color: #313A4E;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    margin: 8px 8px;
+}
+
+    
+
+
+
+
