@@ -3,13 +3,14 @@ let tableCards = [
      ['images/vector.png','images/figma.png','Figma','Visa', 'Itai Bracha', 'Jan 2,2022','Done','Jan 12,2022','$783.22','images/3dot.png'],
      ['https://www.figma.com/','***** 2468','Itai Bracha31@gmail.com','$783.22'],
      ['images/vector.png','images/xd.png','Adobe XD','Visa','Itai Bracha','Jan 2,2022','Done','Jan 12,2022','$783.22','images/3dot.png'],
-     ['https://www.figma.com/','***** 2468','Itai Bracha31@gmail.com','$783.22'],
+     ['https://www.adobe.com/','***** 2468','Itai Bracha31@gmail.com','$783.22'],
      ['images/vector.png','images/mailchimp.png','Mailchimp','Visa','Itai Bracha','Jan 2,2022','Done','Jan 12,2022','$783.22','images/3dot.png'],
-     ['https://www.figma.com/','***** 2468','Itai Bracha31@gmail.com','$783.22'],
+     ['https://mailchimp.com/','***** 2468','Itai Bracha31@gmail.com','$783.22'],
      ['images/vector.png','images/x.png','WIX','Visa','Itai Bracha','Jan 2,2022','Done','Jan 12,2022','$783.22','images/3dot.png'],
-     ['https://www.figma.com/','***** 2468','Itai Bracha31@gmail.com','$783.22'],
+     ['https://www.wix.com/','***** 2468','Itai Bracha31@gmail.com','$783.22'],
      ['images/vector.png','images/youtube.png','Youtube','Visa','Itai Bracha','Jan 2,2022','Done','Jan 12,2022','$783.22','images/3dot.png'],
-     ['images/num0.png','images/num1.png','images/num2.png','images/num3.png','images/num4.png']
+     ['https://www.youtube.com/','***** 2468','Itai Bracha31@gmail.com','$783.22'],
+     ['images/num0.png','images/num1.png','images/num2.png','images/num3.png','images/num4.png',' ']
 ]  
 
 // let tableEcards = [
@@ -69,35 +70,38 @@ let tableCards = [
     
     function createThead(myArray) {
         let theadElement = "<thead>";
-        for(let i = 0; i < myArray[0].length; i++){
-             
-            for(let j = 0; j < myArray[i].length; j++){
-                if (i === 0 && j >= 1 && j <= 2) {
-                    theadElement += "<th scope=\"col\" colspan=\"2\">"+myArray[i][j]+"</th>";
+            theadElement += "<tr>";
+            for(let j = 0; j < myArray[0].length; j++){
+                if (j >= 1 && j <= 2) {
+                    theadElement += "<th scope=\"col\" colspan=\"2\">"+myArray[0][j]+"</th>";
                 } else {
-                    theadElement += "<th scope=\"col\">"+myArray[i][j]+"</th>";
+                    theadElement += "<th scope=\"col\">"+myArray[0][j]+"</th>";
                 }    
             }
             theadElement += "</tr>";
-        }
-        theadElement += "</thead>";
+            theadElement += "</thead>";
 
         return theadElement;
     }
 
     function createTbody(myArray) {
         let tbodyElement = "<tbody>";
-        for(let i = 0; i < myArray[10].length; i++){
-            tbodyElement += "<tr>";
+        for(let i = 1; i < myArray.length - 1; i++){
+            tbodyElement += "<tr>";            
             for(let j = 0; j < myArray[i].length; j++){
-                if (j === 0) {
-                    tbodyElement += "<th scope=\"row\" rowspan=\"2\">"+myArray[i][j]+"</th>";
-                } else if (i % 2 === 1 && j >= 2 && j <= 5) {
-                    tbodyElement += "<td>"+myArray[i][j]+"</td>";
-                } else {
+                let x = myArray[i][j];
+                if (x[x.length - 2] === 'n' && x[x.length - 1] === 'g'){
+                     myArray[i][j] = '<img src=\"' + myArray[i][j] + '\" alt=\"\">';
+                };
+
+                if (j === 0 && i % 2 === 1 ) {
+                    tbodyElement += "<th scope=\"row\" rowspan=\"2\">" + myArray[i][j]+"</th>";
+                } else if (i % 2 === 1 && (j === 1 || j >= 6)) {
                     tbodyElement += "<td rowspan=\"2\">"+myArray[i][j]+"</td>";
+                } else {
+                    tbodyElement += "<td>"+myArray[i][j]+"</td>";
                 }
-            }
+            }        
             tbodyElement += "</tr>";
         }
         tbodyElement += "</tbody>";
@@ -107,20 +111,18 @@ let tableCards = [
 
     function createTfoot(myArray) {
         let tfootElement = "<tfoot>";
-        for(let i = 0; i >= myArray.length; i++){
             tfootElement += "<tr>";
-            for(let j = 0; j < myArray[i].length; j++){
-                tfootElement += "<td colspan=\"10\">" +myArray[i][j]+ "</td>";
+            for(let j = 0; j < myArray[myArray.length - 1].length; j++){
+                tfootElement += "<td>" +'<img src=\"' + myArray[[myArray.length - 1]][j] + '\" alt=\"\">'+ "</td>";
             }
-            tfootElement += "</tr>";    
-        }
-        tfootElement += "</tfoot>";
+            tfootElement += "</tr>";
+            tfootElement += "</tfoot>";
         
         return tfootElement;
     }
 
     function makeTable(myArray) {
-        let result = "<table border=1>";
+        let result = "<table border=0>";
         let x = createThead(myArray);
         let y = createTbody(myArray);
         let z = createTfoot(myArray);
