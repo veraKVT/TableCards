@@ -13,7 +13,10 @@
                 userName: 'Itai Bracha',
                 userEmail: 'Itai Bracha31@gmail.com'
             }],
-            lastTrans: 'Jan 2,2022',
+            lastTrans: [{
+                date: 'Jan 2,2022',
+                sum: '$783.22'
+            }],
             transStatus: 'Done',
             endDate: 'Jan 12,2022',
             totalUsed: '$783.22',
@@ -33,7 +36,10 @@
                 userName: 'Itai Bracha',
                 userEmail: 'Itai Bracha31@gmail.com'
             }],
-            lastTrans: 'Jan 2,2022',
+            lastTrans: [{
+                date: 'Jan 2,2022',
+                sum: '$783.22'
+            }],
             transStatus: 'Done',
             endDate: 'Jan 12,2022',
             totalUsed: '$783.22',
@@ -53,7 +59,10 @@
                 userName: 'Itai Bracha',
                 userEmail: 'Itai Bracha31@gmail.com'
             }],
-            lastTrans: 'Jan 2,2022',
+            lastTrans: [{
+                date: 'Jan 2,2022',
+                sum: '$783.22'
+            }],
             transStatus: 'Done',
             endDate: 'Jan 12,2022',
             totalUsed: '$783.22',
@@ -73,7 +82,10 @@
                 userName: 'Itai Bracha',
                 userEmail: 'Itai Bracha31@gmail.com'
             }],
-            lastTrans: 'Jan 2,2022',
+            lastTrans: [{
+                date: 'Jan 2,2022',
+                sum: '$783.22'
+            }],
             transStatus: 'Done',
             endDate: 'Jan 12,2022',
             totalUsed: '$783.22',
@@ -93,7 +105,10 @@
                 userName: 'Itai Bracha',
                 userEmail: 'Itai Bracha31@gmail.com'
             }],
-            lastTrans: 'Jan 2,2022',
+            lastTrans: [{
+                date: 'Jan 2,2022',
+                sum: '$783.22'
+            }],
             transStatus: 'Done',
             endDate: 'Jan 12,2022',
             totalUsed: '$783.22',
@@ -105,8 +120,28 @@
         let myTable = document.createElement('table');
         let tableBody = document.createElement('tbody');        
 
+        // for( let i=0; i < tableData.length; i++){
+        //     let tableRows = document.createElement('tr');
+        //     for(let key in tableData[i]){
+        //         let cellData;
+        //         if (key === 'chek'){
+        //             cellData = "<td rowspan=\"2\"><input type=\"checkbox\" id=\"check\" value = " + tableData[i][key] + "></td>";
+        //         } else if (key === "imgDotsUrl" || key === "imgCompUrl"){
+        //             cellData = "<td rowspan=\"2\"><img src=" + tableData[i][key] + "></td>";
+        //         } else if (Array.isArray(tableData[i][key]) === true){
+        //             for(let name in tableData[i][key][0]){                        
+        //                 cellData = "<td>"+tableData[i][key][0][name]+"</td>";
+        //             }
+        //         } else {
+        //             cellData = "<td rowspan = \"2\">"+tableData[i][key]+"</td>";
+        //         }
+        //         tableRows.innerHTML += cellData;                     
+        //     }
+        //     tableBody.appendChild(tableRows);
+        // }       
         for( let i=0; i < tableData.length; i++){
-            let tableRows = document.createElement('tr');
+            let tableRows1 = document.createElement('tr');
+            let tableRows2 = document.createElement('tr');
             for(let key in tableData[i]){
                 let cellData;
                 if (key === 'chek'){
@@ -115,16 +150,30 @@
                     cellData = "<td rowspan=\"2\"><img src=" + tableData[i][key] + "></td>";
                 } else if (Array.isArray(tableData[i][key]) === true){
                     for(let name in tableData[i][key][0]){                        
-                        cellData = "<td>"+tableData[i][key][0][name]+"</td>";
+                        cellData = "<td>"+tableData[i][key][0][companyName] +"</td>";
+                        cellData += "<td>"+tableData[i][key][0][cardName] +"</td>";
+                        cellData += "<td>"+tableData[i][key][0][userName] +"</td>";
+                        cellData += "<td>"+tableData[i][key][0][date] +"</td>";
                     }
                 } else {
                     cellData = "<td rowspan = \"2\">"+tableData[i][key]+"</td>";
                 }
-                tableRows.innerHTML += cellData;                     
+                debugger
+                tableRows1.innerHTML += cellData;
+                
+                for(let name in tableData[i][key][0]){                        
+                    cellData = "<td>"+tableData[i][key][0][companyUrl] +"</td>";                   
+                    cellData += "<td>"+tableData[i][key][0][cardNum] +"</td>";
+                    cellData += "<td>"+tableData[i][key][0][userEmail] +"</td>";
+                    cellData += "<td>"+tableData[i][key][0][sum] +"</td>";
+                }
+                tableRows2.innerHTML += cellData;
+
+                let myRow = tableRows1.innerHTML + tableRows2.innerHTML;                
             }
-            tableBody.appendChild(tableRows);
-        }       
-    
+            tableBody.appendChild(myRow);
+        } 
+
         myTable.appendChild(tableBody);
         let placeForTable = document.getElementById("tableObjs");
         placeForTable.appendChild(myTable);            
