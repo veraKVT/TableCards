@@ -1,4 +1,142 @@
-// let tableCards = [
+    let tableDynamic = [{
+            chek: 'true',
+            imgCompUrl: 'images/figma.png',
+            companyData: [{
+                companyName: 'Figma',
+                companyUrl: 'https://www.figma.com/'
+            }],
+            cardData: [{
+                cardName: 'Visa',
+                cardNum: '***** 2468'
+                }],
+            userData: [{
+                userName: 'Itai Bracha',
+                userEmail: 'Itai Bracha31@gmail.com'
+            }],
+            lastTrans: 'Jan 2,2022',
+            transStatus: 'Done',
+            endDate: 'Jan 12,2022',
+            totalUsed: '$783.22',
+            imgDotsUrl: 'images/3dot.png'
+        },{
+            chek: 'true',
+            imgCompUrl: 'images/xd.png',
+            companyData: [{
+                companyName: 'Adobe XD',
+                companyUrl: 'https://www.adobe.com/'
+            }],
+            cardData: [{
+                cardName: 'Visa',
+                cardNum: '***** 2468'
+            }],
+            userData: [{
+                userName: 'Itai Bracha',
+                userEmail: 'Itai Bracha31@gmail.com'
+            }],
+            lastTrans: 'Jan 2,2022',
+            transStatus: 'Done',
+            endDate: 'Jan 12,2022',
+            totalUsed: '$783.22',
+            imgDotsUrl: 'images/3dot.png'
+        },{  
+            chek: 'true',
+            imgCompUrl: 'images/mailchimp.png',
+            companyData: [{
+                companyName: 'Mailchimp',
+                companyUrl: 'https://mailchimp.com/'
+            }],
+            cardData: [{
+                cardName: 'Visa',
+                cardNum: '***** 2468'
+            }],
+            userData: [{
+                userName: 'Itai Bracha',
+                userEmail: 'Itai Bracha31@gmail.com'
+            }],
+            lastTrans: 'Jan 2,2022',
+            transStatus: 'Done',
+            endDate: 'Jan 12,2022',
+            totalUsed: '$783.22',
+            imgDotsUrl: 'images/3dot.png'
+        },{
+            chek: 'true',
+            imgCompUrl: 'images/x.png',
+            companyData: [{
+                companyName: 'WIX',
+                companyUrl: 'https://www.wix.com/'
+            }],
+            cardData: [{
+                cardName: 'Visa',
+                cardNum: '***** 2468'
+            }],
+            userData: [{
+                userName: 'Itai Bracha',
+                userEmail: 'Itai Bracha31@gmail.com'
+            }],
+            lastTrans: 'Jan 2,2022',
+            transStatus: 'Done',
+            endDate: 'Jan 12,2022',
+            totalUsed: '$783.22',
+            imgDotsUrl: 'images/3dot.png'
+        },{
+            chek: 'true',
+            imgCompUrl: 'images/youtube.png',
+            companyData: [{
+                companyName: 'Youtube',
+                companyUrl: 'https://www.youtube.com/'
+            }],
+            cardData: [{
+                cardName: 'Visa',
+                cardNum: '***** 2468'
+            }],
+            userData: [{
+                userName: 'Itai Bracha',
+                userEmail: 'Itai Bracha31@gmail.com'
+            }],
+            lastTrans: 'Jan 2,2022',
+            transStatus: 'Done',
+            endDate: 'Jan 12,2022',
+            totalUsed: '$783.22',
+            imgDotsUrl: 'images/3dot.png'
+        }]
+
+
+    function createDynamicTable(tableData){
+        let myTable = document.createElement('table');
+        let tableBody = document.createElement('tbody');        
+
+        for( let i=0; i < tableData.length; i++){
+            let tableRows = document.createElement('tr');
+            for(let key in tableData[i]){
+                let cellData;
+                if (key === 'chek'){
+                    cellData = "<td rowspan=\"2\"><input type=\"checkbox\" id=\"check\" value = " + tableData[i][key] + "></td>";
+                } else if (key === "imgDotsUrl" || key === "imgCompUrl"){
+                    cellData = "<td rowspan=\"2\"><img src=" + tableData[i][key] + "></td>";
+                } else if (Array.isArray(tableData[i][key]) === true){
+                    for(let name in tableData[i][key][0]){                        
+                        cellData = "<td>"+tableData[i][key][0][name]+"</td>";
+                    }
+                } else {
+                    cellData = "<td rowspan = \"2\">"+tableData[i][key]+"</td>";
+                }
+                tableRows.innerHTML += cellData;                     
+            }
+            tableBody.appendChild(tableRows);
+        }       
+    
+        myTable.appendChild(tableBody);
+        let placeForTable = document.getElementById("tableObjs");
+        placeForTable.appendChild(myTable);            
+    };
+
+  createDynamicTable(tableDynamic);  
+
+
+
+
+
+  // let tableCards = [
 //      [' ','Name','User credentials','Last Transcation','Status','End date ','Total Used',' '],    
 //      ['images/vector.png','images/figma.png','Figma','Visa', 'Itai Bracha', 'Jan 2,2022','Done','Jan 12,2022','$783.22','images/3dot.png'],
 //      ['https://www.figma.com/','***** 2468','Itai Bracha31@gmail.com','$783.22'],
@@ -135,133 +273,3 @@
     // placeForTable.insertAdjacentHTML('afterbegin', myTable);
 
 
-
-    let tableDynamic = [{
-            chek: 'true',
-            imgCompUrl: 'images/figma.png',
-            companyData: [{
-                companyName: 'Figma',
-                companyUrl: 'https://www.figma.com/'
-            }],
-            cardData: [{
-                cardName: 'Visa',
-                cardNum: '***** 2468'
-            }],
-            userData: [{
-                userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
-            }],
-            lastTrans: 'Jan 2,2022',
-            transStatus: 'Done',
-            endDate: 'Jan 12,2022',
-            totalUsed: '$783.22',
-            imgDotsUrl: 'images/3dot.png'
-        },{
-            chek: 'true',
-            imgCompUrl: 'images/xd.png',
-            companyData: [{
-                companyName: 'Adobe XD',
-                companyUrl: 'https://www.adobe.com/'
-            }],
-            cardData: [{
-                cardName: 'Visa',
-                cardNum: '***** 2468'
-            }],
-            userData: [{
-                userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
-            }],
-            lastTrans: 'Jan 2,2022',
-            transStatus: 'Done',
-            endDate: 'Jan 12,2022',
-            totalUsed: '$783.22',
-            imgDotsUrl: 'images/3dot.png'
-        },{
-            chek: 'true',
-            imgCompUrl: 'images/mailchimp.png',
-            companyData: [{
-                companyName: 'Mailchimp',
-                companyUrl: 'https://mailchimp.com/'
-            }],
-            cardData: [{
-                cardName: 'Visa',
-                cardNum: '***** 2468'
-            }],
-            userData: [{
-                userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
-            }],
-            lastTrans: 'Jan 2,2022',
-            transStatus: 'Done',
-            endDate: 'Jan 12,2022',
-            totalUsed: '$783.22',
-            imgDotsUrl: 'images/3dot.png'
-        },{
-            chek: 'true',
-            imgCompUrl: 'images/x.png',
-            companyData: [{
-                companyName: 'WIX',
-                companyUrl: 'https://www.wix.com/'
-            }],
-            cardData: [{
-                cardName: 'Visa',
-                cardNum: '***** 2468'
-            }],
-            userData: [{
-                userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
-            }],
-            lastTrans: 'Jan 2,2022',
-            transStatus: 'Done',
-            endDate: 'Jan 12,2022',
-            totalUsed: '$783.22',
-            imgDotsUrl: 'images/3dot.png'
-        },{
-            chek: 'true',
-            imgCompUrl: 'images/youtube.png',
-            companyData: [{
-                companyName: 'Youtube',
-                companyUrl: 'https://www.youtube.com/'
-            }],
-            cardData: [{
-                cardName: 'Visa',
-                cardNum: '***** 2468'
-            }],
-            userData: [{
-                userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
-            }],
-            lastTrans: 'Jan 2,2022',
-            transStatus: 'Done',
-            endDate: 'Jan 12,2022',
-            totalUsed: '$783.22',
-            imgDotsUrl: 'images/3dot.png'
-        }]
-
-
-    function createDynamicTable(tableData){
-        let myTable = document.createElement('table');
-        let tableBody = document.createElement('tbody');        
-
-        for( let i=0; i < tableData.length; i++){
-            let tableRows = document.createElement('tr');
-            for(let j=0; j < tableData[i].length; j++){
-                 if (Array.isArray(tableData[j]) === true){
-                    for(let x=0; x<tableData[i][j].length; x++){
-                    let cellData = document.createTextNode('"<td>"+tableData[i][j][x].key+"</td>"');
-                    }
-                } else {
-                        cellData = document.createTextNode('"<td rowspan = \"2\">"+tableData[i][j].key+"</td>"');
-                    }
-                    tableRows.appendChild(cellData);                     
-            }                
-        }
-        tableBody.appendChild(tableRows);
-    
-        myTable.appendChild(tableBody);
-        let placeForTable = document.getElementById(tableObjs);
-        placeForTable.appendChild(myTable);
-            
-    };
-
-  createDynamicTable(tableDynamic);  
