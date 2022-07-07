@@ -43,20 +43,28 @@ th{
     height: 45px;
 }
 .dot{
-    padding: 5px 10px 5px 30px;
+    padding: 5px 20px 5px 5px;
 }
 
 .kvadro{
     padding: 5px 15px 5px 15px;
 }
 
+.kvadro input{
+    height: 20px;
+    width: 20px;
+    border: 1px solid #E1E1E1;
+}
+
 .status{
+    content: "\26AC";
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 800;
     color: #17E383;
 }
 
 .status1{
+    content: "\26AC";
     font-size: 16px;
     font-weight: 500;
     color: #FF9548;
