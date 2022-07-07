@@ -139,45 +139,75 @@
         //     }
         //     tableBody.appendChild(tableRows);
         // }       
+
+
         for( let i=0; i < tableData.length; i++){
             let tableRows1 = document.createElement('tr');
             let tableRows2 = document.createElement('tr');
             for(let key in tableData[i]){
-                let cellData;
+                let cellData1;
+                let cellData2;
                 if (key === 'chek'){
-                    cellData = "<td rowspan=\"2\"><input type=\"checkbox\" id=\"check\" value = " + tableData[i][key] + "></td>";
+                    cellData1 = "<td rowspan=\"2\"><input type=\"checkbox\" id=\"check\" value = " + tableData[i][key] + "></td>";
                 } else if (key === "imgDotsUrl" || key === "imgCompUrl"){
-                    cellData = "<td rowspan=\"2\"><img src=" + tableData[i][key] + "></td>";
+                    cellData1 = "<td rowspan=\"2\"><img src=" + tableData[i][key] + "></td>";
                 } else if (Array.isArray(tableData[i][key]) === true){
-                    for(let name in tableData[i][key][0]){                        
-                        cellData = "<td>"+tableData[i][key][0][companyName] +"</td>";
-                        cellData += "<td>"+tableData[i][key][0][cardName] +"</td>";
-                        cellData += "<td>"+tableData[i][key][0][userName] +"</td>";
-                        cellData += "<td>"+tableData[i][key][0][date] +"</td>";
-                    }
+                    for(let name in tableData[i][key][0]){
+                        switch (name){
+                            case 'companyName':
+                                cellData1 = "<td>"+tableData[i][key][0].companyName +"</td>";
+                                break;
+                            case 'cardName':
+                                cellData1 += "<td>"+tableData[i][key][0].cardName +"</td>";
+                                break;
+                            case 'userName':
+                                cellData1 += "<td>"+tableData[i][key][0].userName +"</td>";
+                                break;
+                            case 'date':
+                                cellData1 += "<td>"+tableData[i][key][0].date +"</td>";
+                                break;
+                            default:
+                                cellData1 += "&nbsp";
+                        } 
+                    }                    
                 } else {
-                    cellData = "<td rowspan = \"2\">"+tableData[i][key]+"</td>";
+                    cellData1 = "<td rowspan = \"2\">"+tableData[i][key]+"</td>";
                 }
-                debugger
-                tableRows1.innerHTML += cellData;
+                               
+                tableRows1.innerHTML += cellData1;
                 
-                for(let name in tableData[i][key][0]){                        
-                    cellData = "<td>"+tableData[i][key][0][companyUrl] +"</td>";                   
-                    cellData += "<td>"+tableData[i][key][0][cardNum] +"</td>";
-                    cellData += "<td>"+tableData[i][key][0][userEmail] +"</td>";
-                    cellData += "<td>"+tableData[i][key][0][sum] +"</td>";
-                }
-                tableRows2.innerHTML += cellData;
-
-                let myRow = tableRows1.innerHTML + tableRows2.innerHTML;                
+                if (Array.isArray(tableData[i][key]) === true){
+                    for(let name in tableData[i][key][0]){
+                        switch (name){
+                            case 'companyUrl':
+                                cellData1 = "<td>"+tableData[i][key][0].companyUrl +"</td>";
+                                break;
+                            case 'cardNum':
+                                cellData1 += "<td>"+tableData[i][key][0].cardNum +"</td>";
+                                break;
+                            case 'userEmail':
+                                cellData1 += "<td>"+tableData[i][key][0].userEmail +"</td>";
+                                break;
+                            case 'sum':
+                                cellData1 += "<td>"+tableData[i][key][0].sum +"</td>";
+                                break;
+                            default:
+                                cellData1 += "&nbsp";
+                        }
+                    }
+                }             
+                    
+                tableRows2.innerHTML += cellData2;             
             }
-            tableBody.appendChild(myRow);
+            tableBody.appendChild(tableRows1);
+            tableBody.appendChild(tableRows2);
         } 
 
         myTable.appendChild(tableBody);
         let placeForTable = document.getElementById("tableObjs");
         placeForTable.appendChild(myTable);            
-    };
+    }
+    
 
   createDynamicTable(tableDynamic);  
 
@@ -319,6 +349,4 @@
     // };
     // let myTable = makeTable(tableCards);
     // let placeForTable = document.getElementById('javaTable');
-    // placeForTable.insertAdjacentHTML('afterbegin', myTable);
-
-
+    // placeForTable.insertAdjacentHTML('afterbegin', myTable);}
