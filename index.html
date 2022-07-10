@@ -3,39 +3,100 @@
   <head>
     <meta charset="utf-8">
     <title>Table</title>
-    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Varela+Round&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <header>
+      <nav class="nav-flex">
+        <div >          
+            <ul>
+              <a href="#page1"><li class="pageName"><img src="images/cardLogo.png" alt="">E-Cards</li></a>
+              <a href="#page2"><li id="activ">&#8693; &nbsp;Transactions</li></a>
+              <a href="#page3"><li><img src="images/card.png" alt="">Cards</li></a>
+            </ul>
+        </div>
+        <div class="nav-block">         
+            <ul>
+              <a href="#page4"><li><img class="user-ava" src="images/userAvatar.png" alt="">Itai Bracha<br><span>Itaibrahca31@gmail.com</span></li></a>
+              <a href="#page5"><li><img src="images/settingWeel.png" alt="">Settings</li></a>
+              <a href="#page5"><li><img src="images/logOut.png" alt="">Logout</li></a>
+            </ul>          
+        </div>        
+      </nav>
+    </header>
 
-    <table>
-      <thead>
-        <tr class="head-block">
-          <th></th>
-          <th scope="col" colspan="2">Name</th>
-          <th scope="col" colspan="2">User credentials</th>
-          <th scope="col">Last Transcation</th>
-          <th scope="col">Status</th>
-          <th scope="col">End date </th>
-          <th scope="col">Total Used</th>
-          <th></th>        
-        </tr>
+    <main>
+      <h1>Cards</h1>
+      <div class="cards-block">
+        <div><img src="images/bigCard.png" alt=""></div>
+        <div class="addCard">
+          <img src="images/addIcon.png" alt=""><p>Add new Card</p>
+        </div>
+      </div>
+      <h1>Transactions</h1>
+      <div class="filtres">
+        <div class="search-button">
+          <img src="images/search.png" alt=""><input type="text" placeholder="Search for..." id="mySearch" name="mySearch">          
+        </div>
+        <div class="filter-button">
+          <div><span>Plug & Pay</span></div>
+          <div class="filter-icon"><img src="images/plagVector.png" alt=""></div>
+        </div>
+        <div class="filter-button">
+          <div><span>Employee</span></div>
+          <div class="filter-icon"><img src="images/employee.png" alt=""></div>
+        </div>
+        <div class="filter-button">
+          <div><span>Status</span></div>
+          <div class="filter-icon"><img src="images/status.png" alt=""></div>
+        </div>
+        <div class="filter-button">
+          <div><span>Type</span></div>
+          <div class="filter-icon"><img src="images/typeIcon.png" alt=""></div>
+        </div>
+        <div class="hide"></div>        
+        <div>
+          <select class="sorter" id="sorter" name="sorter">
+            <option selected disabled hidden>Sort by</option>
+            <option value="status">Status</option>            
+            <option value="total Used">Total Used</option>
+            <option value="name">Name</option>
+            <option value="card">Card</option>
+          </select>          
+        </div>
+        <div class="download"><img src="images/download-arrow.png" alt=""></div>
+        
+      </div>
 
-      </thead>
-      <tbody id="myTbody"></tbody>
-      <tfoot>
-        <tr>
-          <td colspan="10">
-            <div id="circleNumbers" class="foot-block"></div>         
-          </td>            
-        </tr>
-        </tfoot>
-    </table>       
-    <script src="scripts/scripts-card.js"></script>
-  </body>
+      <table>
+        <thead>
+          <tr class="head-block">
+            <th></th>
+            <th scope="col" colspan="2">Name</th>
+            <th scope="col" colspan="2">User credentials</th>
+            <th scope="col">Last Transcation</th>
+            <th scope="col">Status</th>
+            <th scope="col">End date </th>
+            <th scope="col">Total Used</th>
+            <th></th>        
+          </tr>
 
+        </thead>
+        <tbody id="myTbody"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="10">
+              <div id="circleNumbers" class="foot-block"></div>         
+            </td>            
+          </tr>
+          </tfoot>
+      </table>
     
+    </main>
+    <script src="scripts/scripts-card.js"></script>
+  </body>    
 </html>

@@ -120,16 +120,16 @@ function createCellsNoRowspanForRowOne(obj){
     for(let name in obj){
         switch (name){
             case 'companyName':
-                cellText += "<td class=\"main\">"+ obj.companyName +"</td>";
+                cellText += "<td class=\"upline\">"+ obj.companyName +"</td>";
                 break;
             case 'cardName':
-                cellText += "<td class=\"main\">"+ obj.cardName +"</td>";
+                cellText += "<td class=\"upline\">"+ obj.cardName +"</td>";
                 break;
             case 'userName':
-                cellText += "<td class=\"main\">"+ obj.userName +"</td>";
+                cellText += "<td class=\"upline\">"+ obj.userName +"</td>";
                 break;
             case 'date':
-                cellText += "<td class=\"main\">"+ obj.date +"</td>";
+                cellText += "<td class=\"upline\">"+ obj.date +"</td>";
                 break;
             default:
                 

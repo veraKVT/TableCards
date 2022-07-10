@@ -1,9 +1,217 @@
-table{
-    width: 100%;
+* {
+    margin: 0;
+    padding: 0;    
+  }
+
+body{
+    font-family:'Inter', sans-serif;
+    background-color: #E5E5E5;
+    display: flex;    
+}
+
+header{    
+    width: 18%;   
+    background-color: #111111;
+    border-radius: 0px 50px 0px 0px;
+    padding: 45px 25px 45px 30px;
+}
+
+main{
+    width: 100%; 
+    padding: 35px 65px 15px; 
+}
+
+a{
+    text-decoration: none;
+  }
+
+a:hover{
+    color: #BABEC8;
+    opacity: 0.6; 
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;    
+}
+
+h1{
+    font-size: 28px;
+    font-weight: 700;
+    color:#111111;
+}
+
+.pageName{
+    color:#FFFFFF;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+li{
+   color: #FFFFFF;
+   font-size: 16px;
+   font-weight: 600;
+   padding: 15px 0px;
+}
+
+li span{
+    font-size: 12px;
+    font-weight: 500;
+    color: #BABEC8;
+}
+
+li img{
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.user-ava{
+    float: left;
+}
+
+#activ{
+    color: #BABEC8;
+    opacity: 0.6;
+    margin: 20px 0px;    
+}
+
+.nav-block{
+    border-top: 1px solid #9598A0;
+}
+
+.nav-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;       
+}
+
+.cards-block{
+    display: flex;
+}
+
+.addCard{
+    box-sizing: border-box;
+    border: 2px dashed #6B6F7B;
+    border-radius: 12px;
+    width: 310px;
+    height: 178px;
+    margin-top: 25px;
+    text-align: center;
+    padding-top: 53px;
+}
+
+.addCard p{
+    color: #6B6F7B;
+}
+
+.filtres{
+    display: flex;
+    justify-content: space-between;
+    gap: 12px    
+}
+
+.filter-button{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    border: 2px solid #D9D9D9;
+    border-radius: 8px;
+    width: 157px;
+    height: 40px;    
+    text-align: center;
+}
+
+.filter-button span{
+    font-size: 14px;
+    font-weight: 500;
+    color: #313A4E;
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+.filter-icon{
+    width: 38px;
+    border-left: 2px solid #D9D9D9;
+    padding-top: 10px;
+}
+
+.hide{
+    visibility: hidden;
+    box-sizing: border-box;    
+    width: 120px;
+}
+
+.search-button{
+    position: relative;
+}
+
+.search-button input{
+    box-sizing: border-box;    
+    background-color: #FFFFFF;
+    border: 2px solid #D9D9D9;
+    border-radius: 8px;
+    width: 160px;
+    height: 40px;    
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #313A4E;    
     font-family:'Inter', sans-serif;    
-    box-shadow: 0 0 0 2px #6b6f7b;
+}
+
+.search-button img{
+    position: absolute;
+    top: 12px;
+    left: 12px;    
+}
+
+.sorter{
+    box-sizing: border-box;    
+    background-color: #FFFFFF;
+    border: 2px solid #D9D9D9;
+    border-radius: 8px;
+    width: 157px;
+    height: 40px;   
+    font-size: 14px;
+    font-weight: 500;
+    color: #313A4E;    
+    font-family:'Inter', sans-serif;
+    padding-left: 20px;
+}
+
+.sorter option{
+    color: #313A4E;    
+    font-family:'Inter', sans-serif;        
+}
+
+
+
+
+
+
+.download{
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: #BABEC8;
+    border: 1px solid #BABEC8;
+    text-align: center;
+    padding-top: 7px;
+    
+    
+}
+
+table{
+    width: 100%;    
     border-radius: 30px;
     border-collapse: collapse;
+    background-color: #FFFFFF;
+    
 }
 
 thead{
@@ -18,7 +226,7 @@ thead{
     vertical-align: text-top;
  }
 
-.main{
+.upline{
     color: #313A4E;
     font-size: 16px;
     font-weight: 600;
@@ -31,23 +239,24 @@ th{
     color:#6B6F7B;
 }
 .head-block{
-    height: 89px;
+    height: 75px;
     text-align: left;
 }
 
 .foot-block{
-    height: 89px;
+    height: 75px;
 }
 
-.main, .under{
-    height: 45px;
+.upline, .under{
+    height: 40px;
+    padding: 3px 0px;
 }
 .dot{
-    padding: 5px 20px 5px 5px;
+    padding: 5px 25px 5px 5px;
 }
 
 .kvadro{
-    padding: 5px 15px 5px 15px;
+    padding: 5px 15px 5px 25px;
 }
 
 .kvadro input{
@@ -88,14 +297,14 @@ th{
 }
 
 .footnum{
-    width: 49px;
-    height: 49px;
+    width: 45px;
+    height: 45px;
     border: 1px solid #6B6F7B;         
     border-radius: 48px;
     color: #313A4E;
     font-size: 16px;
     font-weight: 600;
-    line-height: 49px;
+    line-height: 45px;
     text-align: center;
     margin: 8px 8px;
 }
