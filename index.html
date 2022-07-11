@@ -60,12 +60,12 @@
         </div>
         <div class="hide"></div>        
         <div>
-          <select class="sort-block" id="sorter" name="sorter">
+          <select onchange="selectSorting(tableDynamic)" class="sort-block" id="sorter" name="sorter">
             <option selected disabled hidden>Sort by</option>
-            <option onclick="sortingTableByStatus(tableDynamic)" value="status">Status</option>            
-            <option onclick="sortingTableByTotalUsed(tableDynamic)" value="total">Total used</option>
-            <option onclick="sortingTableByCompanyName(tableDynamic, i, key);"value="name">Company name</option>
-            <option onclick="sortingTableByDate(tableDynamic);"value="date">Date</option>
+            <option value="status">Status</option>            
+            <option value="total">Total used</option>
+            <option value="name">Company name</option>
+            <option value="date">Date</option>
           </select>          
         </div>
         <div class="download"><img src="images/download-arrow.png" alt=""></div>

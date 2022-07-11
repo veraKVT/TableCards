@@ -1,3 +1,5 @@
+// My main array for table
+
     let tableDynamic = [{
             chek: 'true',
             imgCompUrl: 'images/figma.png',
@@ -41,8 +43,8 @@
                 sum: '$783.22'
             }],
             transStatus: 'Done',
-            endDate: 'Jan 12,2022',
-            totalUsed: '$783.22',
+            endDate: 'Jan 22,2022',
+            totalUsed: '$283.22',
             imgDotsUrl: 'images/3dot.png'
         },{  
             chek: 'true',
@@ -64,8 +66,8 @@
                 sum: '$783.22'
             }],
             transStatus: 'Done',
-            endDate: 'Jan 12,2022',
-            totalUsed: '$783.22',
+            endDate: 'Jan 30,2022',
+            totalUsed: '$983.22',
             imgDotsUrl: 'images/3dot.png'
         },{
             chek: 'true',
@@ -87,8 +89,8 @@
                 sum: '$783.22'
             }],
             transStatus: 'Pending',
-            endDate: 'Jan 12,2022',
-            totalUsed: '$783.22',
+            endDate: 'Jan 10,2022',
+            totalUsed: '$583.22',
             imgDotsUrl: 'images/3dot.png'
         },{
             chek: 'true',
@@ -110,11 +112,13 @@
                 sum: '$783.22'
             }],
             transStatus: 'Done',
-            endDate: 'Jan 12,2022',
-            totalUsed: '$783.22',
+            endDate: 'Jan 11,2022',
+            totalUsed: '$183.22',
             imgDotsUrl: 'images/3dot.png'
         }]
-    
+
+// 2 functions for rows with rowspan
+
 function createCellsNoRowspanForRowOne(obj){
     let cellText = '';    
     for(let name in obj){
@@ -131,8 +135,7 @@ function createCellsNoRowspanForRowOne(obj){
             case 'date':
                 cellText += "<td class=\"upline\">"+ obj.date +"</td>";
                 break;
-            default:
-                
+            default:                
         } 
     }
     return cellText;        
@@ -155,14 +158,13 @@ function createCellsNoRowspanForRowTwo(obj){
             case 'sum':
                 cellText += "<td class=\"under\">"+ obj.sum +"</td>";
                 break;
-            default:
-                
+            default:                
         }
     }
     return cellText;
 }
 
-
+// Main function for dynamic table
 
 function createTbodyForDynamicTable(tableData){ 
     let tableBody = document.getElementById('myTbody'); 
@@ -198,9 +200,10 @@ function createTbodyForDynamicTable(tableData){
         tableBody.appendChild(tableRows1);
         tableBody.appendChild(tableRows2);
     }             
-}    
-
+}
 createTbodyForDynamicTable(tableDynamic);
+
+// function for table footer
 
 let tableFootNumbers = ['1','2','3','4'];
 
@@ -227,8 +230,9 @@ let tableFootNumbers = ['1','2','3','4'];
         last.appendChild(lastNode);        
         parent.appendChild(last);
     }
-
     createTfootNumbers(tableFootNumbers);
+
+    // function for status style
 
     function addStyleForStatus(obj, key){
         let result = '';
@@ -238,12 +242,14 @@ let tableFootNumbers = ['1','2','3','4'];
             result = "<td rowspan = \"2\" class=\"status1\">" + "\u3007 " + obj[key] +"</td>";
         }
         return result;
-    }    
+    }
+    
+// functions for sorting
     
 function sortingTableByStatus(tableData){    
     tableData.sort((a, b) => {
-        let fa = a.transStatus.toLowerCase(),
-            fb = b.transStatus.toLowerCase();
+        let fa = a.transStatus.toLowerCase();
+        let fb = b.transStatus.toLowerCase();
     
         if (fa < fb) {
             return -1;
@@ -263,10 +269,10 @@ function sortingTableByTotalUsed(tableData){
     createTbodyForDynamicTable(tableData);
 }
 
-function sortingTableByCompanyName(tableData, i, key){    
-    tableData[i][key][0].sort((a, b) => {
-        let fa = a.companyName.toLowerCase(),
-            fb = b.companyName.toLowerCase();
+function sortingTableByCompanyName(tableData){    
+    tableData.sort((a, b) => {
+        let fa = a.tableData.companyData.companyName.toLowerCase(),
+            fb = b.tableData.companyData.companyName.toLowerCase();
     
         if (fa < fb) {
             return -1;
@@ -285,6 +291,26 @@ function sortingTableByDate(tableData){
             db = new Date(b.endDate);
         return da - db;
     });
+    createTbodyForDynamicTable(tableData);
+}
+
+function selectSorting(tableData){
+    let sortInput = document.getElementById('sorter').value;
+
+    switch (sortInput){
+        case 'status':
+            sortingTableByStatus(tableData);
+            break;
+        case 'total':
+            sortingTableByTotalUsed(tableData);
+            break;
+        case 'name':
+            sortingTableByCompanyName(tableData);
+            break;
+        case 'date':
+            sortingTableByDate(tableData);
+        default:
+    }
     createTbodyForDynamicTable(tableData);
 }
  
