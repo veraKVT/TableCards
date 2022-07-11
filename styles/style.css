@@ -18,7 +18,7 @@ header{
 
 main{
     width: 100%; 
-    padding: 35px 65px 15px; 
+    padding: 35px 45px 15px; 
 }
 
 a{
@@ -110,7 +110,7 @@ li img{
 .filtres{
     display: flex;
     justify-content: space-between;
-    gap: 12px    
+    gap: 10px    
 }
 
 .filter-button{
@@ -169,7 +169,7 @@ li img{
     left: 12px;    
 }
 
-.sorter{
+.sort-block{
     box-sizing: border-box;    
     background-color: #FFFFFF;
     border: 2px solid #D9D9D9;
@@ -275,7 +275,7 @@ th{
 .status1{
     content: "\26AC";
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 800;
     color: #FF9548;
 }
 .date{

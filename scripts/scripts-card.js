@@ -180,7 +180,7 @@ function createTbodyForDynamicTable(tableData){
             } else if (key === "imgCompUrl"){
                 cellData1 = "<td rowspan=\"2\"><img src=" + tableData[i][key] + "></td>";
             } else if (key === "transStatus") {
-                    cellData1 = "<td rowspan = \"2\" class=\"status\">" + "\u3007 " + tableData[i][key] +"</td>";                
+                cellData1 = addStyleForStatus(tableData[i], key);                                   
             } else if (Array.isArray(tableData[i][key]) === true){
                 cellData1 = createCellsNoRowspanForRowOne(tableData[i][key][0]);
             } else {
@@ -229,3 +229,65 @@ let tableFootNumbers = ['1','2','3','4'];
     }
 
     createTfootNumbers(tableFootNumbers);
+
+    function addStyleForStatus(obj, key){
+        let result = '';
+        if (key === 'transStatus' && obj[key] === 'Done'){ 
+            result = "<td rowspan = \"2\" class=\"status\">" + "\u3007 " + obj[key] +"</td>";
+        } else {
+            result = "<td rowspan = \"2\" class=\"status1\">" + "\u3007 " + obj[key] +"</td>";
+        }
+        return result;
+    }    
+    
+function sortingTableByStatus(tableData){    
+    tableData.sort((a, b) => {
+        let fa = a.transStatus.toLowerCase(),
+            fb = b.transStatus.toLowerCase();
+    
+        if (fa < fb) {
+            return -1;
+        }
+        if (fa > fb) {
+            return 1;
+        }
+        return 0;        
+    });
+    createTbodyForDynamicTable(tableData);
+}
+
+function sortingTableByTotalUsed(tableData){
+    tableData.sort((a, b) => {
+        return a.totalUsed - b.totalUsed;
+    });
+    createTbodyForDynamicTable(tableData);
+}
+
+function sortingTableByCompanyName(tableData, i, key){    
+    tableData[i][key][0].sort((a, b) => {
+        let fa = a.companyName.toLowerCase(),
+            fb = b.companyName.toLowerCase();
+    
+        if (fa < fb) {
+            return -1;
+        }
+        if (fa > fb) {
+            return 1;
+        }
+        return 0;        
+    });
+    createTbodyForDynamicTable(tableData);
+}
+
+function sortingTableByDate(tableData){
+    tableData.sort((a, b) => {
+        let da = new Date(a.endDate),
+            db = new Date(b.endDate);
+        return da - db;
+    });
+    createTbodyForDynamicTable(tableData);
+}
+ 
+
+
+    
