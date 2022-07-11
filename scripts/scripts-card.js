@@ -264,15 +264,24 @@ function sortingTableByStatus(tableData){
 
 function sortingTableByTotalUsed(tableData){
     tableData.sort((a, b) => {
-        return a.totalUsed - b.totalUsed;
+    let fa = a.totalUsed.substring(1);
+    let fb = b.totalUsed.substring(1);
+    
+        if (fa < fb) {
+            return -1;
+        }
+        if (fa > fb) {
+            return 1;
+        }
+        return 0;        
     });
     createTbodyForDynamicTable(tableData);
 }
 
 function sortingTableByCompanyName(tableData){    
     tableData.sort((a, b) => {
-        let fa = a.tableData.companyData.companyName.toLowerCase(),
-            fb = b.tableData.companyData.companyName.toLowerCase();
+        let fa = a.companyData[0].companyName.toLowerCase(),
+            fb = b.companyData[0].companyName.toLowerCase();
     
         if (fa < fb) {
             return -1;
@@ -310,8 +319,7 @@ function selectSorting(tableData){
         case 'date':
             sortingTableByDate(tableData);
         default:
-    }
-    createTbodyForDynamicTable(tableData);
+    }    
 }
  
 
