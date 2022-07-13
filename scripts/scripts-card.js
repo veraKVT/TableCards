@@ -243,6 +243,15 @@ let tableFootNumbers = ['1','2','3','4'];
         }
         return result;
     }
+
+
+function removeOldRows(){  
+    let parent = document.getElementById('myTbody');
+    if (parent.hasChildNodes() === true){
+        parent.innerHTML = '';       
+    }
+}
+        
     
 // functions for sorting
     
@@ -259,6 +268,7 @@ function sortingTableByStatus(tableData){
         }
         return 0;        
     });
+    removeOldRows();
     createTbodyForDynamicTable(tableData);
 }
 
@@ -275,6 +285,7 @@ function sortingTableByTotalUsed(tableData){
         }
         return 0;        
     });
+    removeOldRows();
     createTbodyForDynamicTable(tableData);
 }
 
@@ -291,6 +302,7 @@ function sortingTableByCompanyName(tableData){
         }
         return 0;        
     });
+    removeOldRows();
     createTbodyForDynamicTable(tableData);
 }
 
@@ -300,6 +312,7 @@ function sortingTableByDate(tableData){
             db = new Date(b.endDate);
         return da - db;
     });
+    removeOldRows();
     createTbodyForDynamicTable(tableData);
 }
 
