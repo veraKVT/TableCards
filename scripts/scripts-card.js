@@ -12,14 +12,15 @@
                 cardNum: '***** 2468'
                 }],
             userData: [{
-                userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
+                userName: 'Itai Bracha (Employee)',
+                userEmail: 'Itai Bracha31@gmail.com',
+                employeeStatus: true
             }],
             lastTrans: [{
                 date: 'Jan 2,2022',
                 sum: '$783.22'
             }],
-            transStatus: 'Done',
+            transStatus: 'Pending',
             endDate: 'Jan 12,2022',
             totalUsed: '$783.22',
             imgDotsUrl: 'images/3dot.png'
@@ -36,7 +37,8 @@
             }],
             userData: [{
                 userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
+                userEmail: 'Itai Bracha31@gmail.com',
+                employeeStatus: false 
             }],
             lastTrans: [{
                 date: 'Jan 2,2022',
@@ -58,8 +60,9 @@
                 cardNum: '***** 2468'
             }],
             userData: [{
-                userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
+                userName: 'Itai Bracha (Employee)',
+                userEmail: 'Itai Bracha31@gmail.com',
+                employeeStatus: true
             }],
             lastTrans: [{
                 date: 'Jan 2,2022',
@@ -82,7 +85,8 @@
             }],
             userData: [{
                 userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
+                userEmail: 'Itai Bracha31@gmail.com',
+                employeeStatus: false
             }],
             lastTrans: [{
                 date: 'Jan 2,2022',
@@ -104,8 +108,9 @@
                 cardNum: '***** 2468'
             }],
             userData: [{
-                userName: 'Itai Bracha',
-                userEmail: 'Itai Bracha31@gmail.com'
+                userName: 'Itai Bracha (Employee)',
+                userEmail: 'Itai Bracha31@gmail.com',
+                employeeStatus: true
             }],
             lastTrans: [{
                 date: 'Jan 2,2022',
@@ -334,6 +339,26 @@ function selectSorting(tableData){
         default:
     }    
 }
+
+// functions for filter
+
+function filterByStatus(tableData){
+    let newArr = tableData.filter(function(el){
+       return el.transStatus === 'Done';
+    });
+    removeOldRows();
+    createTbodyForDynamicTable(newArr);
+}
+
+function filterByEmployee(tableData){
+    let newArr = tableData.filter(function(el){
+       return el.userData[0].employeeStatus === true;
+    });
+    removeOldRows();
+    createTbodyForDynamicTable(newArr);
+}
+
+
  
 
 

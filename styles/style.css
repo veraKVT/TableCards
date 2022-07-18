@@ -125,6 +125,10 @@ li img{
     text-align: center;
 }
 
+.filter-button:hover{
+    border: 2px solid #6B6F7B;
+}
+
 .filter-button span{
     font-size: 14px;
     font-weight: 500;
