@@ -109,8 +109,12 @@ li img{
 
 .filtres{
     display: flex;
-    justify-content: space-between;
-    gap: 10px    
+    justify-content: space-between;    
+}
+
+.filtres > div{
+    display: flex;
+    gap: 10px;
 }
 
 .filter-button{
@@ -141,12 +145,6 @@ li img{
     width: 38px;
     border-left: 2px solid #D9D9D9;
     padding-top: 10px;
-}
-
-.hide{
-    visibility: hidden;
-    box-sizing: border-box;    
-    width: 120px;
 }
 
 .search-button{

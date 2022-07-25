@@ -39,36 +39,31 @@
       </div>
       <h1>Transactions</h1>
       <div class="filtres">
-        <div class="search-button">
-          <img src="images/search.png" alt=""><input type="text" placeholder="Search for..." id="mySearch" name="mySearch" onkeyup="forSearch(tableDynamic);">          
-        </div>
-        <div class="filter-button">
-          <div><span>Plug & Pay</span></div>
-          <div class="filter-icon"><img src="images/plagVector.png" alt=""></div>
-        </div>
-        <div class="filter-button" onclick="filterByEmployee(tableDynamic);">
-          <div><span>Employee</span></div>
-          <div class="filter-icon"><img src="images/employee.png" alt=""></div>
-        </div>
-        <div class="filter-button" onclick="filterByStatus(tableDynamic);">
-          <div><span>Status</span></div>
-          <div class="filter-icon"><img src="images/status.png" alt=""></div>
-        </div>
-        <div class="filter-button">
-          <div><span>Type</span></div>
-          <div class="filter-icon"><img src="images/typeIcon.png" alt=""></div>
-        </div>
-        <div class="hide"></div>        
         <div>
-          <select onchange="selectSorting(tableDynamic)" class="sort-block" id="sorter" name="sorter">
-            <option selected disabled hidden>Sort by</option>
-            <option value="status">Status</option>            
-            <option value="total">Total used</option>
-            <option value="name">Company name</option>
-            <option value="date">Date</option>
-          </select>          
+          <div class="search-button">
+            <img src="images/search.png" alt=""><input type="text" placeholder="Search for..." id="mySearch" name="mySearch" onkeyup="forSearch(tableDynamic);">          
+          </div>        
+          <div class="filter-button" onclick="filterByEmployee(tableDynamic);">
+            <div><span>Employee</span></div>
+            <div class="filter-icon"><img src="images/employee.png" alt=""></div>
+          </div>
+          <div class="filter-button" onclick="filterByStatus(tableDynamic);">
+            <div><span>Status</span></div>
+            <div class="filter-icon"><img src="images/status.png" alt=""></div>
         </div>
-        <div class="download"><img src="images/download-arrow.png" alt=""></div>
+        </div>       
+        <div>        
+          <div>
+            <select onchange="selectSorting(tableDynamic)" class="sort-block" id="sorter" name="sorter">
+              <option selected disabled hidden>Sort by</option>
+              <option value="status">Status</option>            
+              <option value="total">Total used</option>
+              <option value="name">Company name</option>
+              <option value="date">Date</option>
+            </select>          
+          </div>
+          <div class="download"><img src="images/download-arrow.png" alt=""></div>
+        </div>
         
       </div>
 

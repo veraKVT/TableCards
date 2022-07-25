@@ -8,7 +8,7 @@
                 companyUrl: 'https://www.figma.com/'
             },
             cardData: {
-                cardName: 'Visa',
+                cardName: 'MasterCard',
                 cardNum: '***** 2468'
                 },
             userData: {
@@ -41,11 +41,11 @@
                 employeeStatus: false 
             },
             lastTrans: {
-                date: 'Jan 2,2022',
+                date: 'Oct 2,2022',
                 sum: '$783.22'
             },
             transStatus: 'Done',
-            endDate: 'Jan 22,2022',
+            endDate: 'Oct 22,2022',
             totalUsed: '$283.22',
             imgDotsUrl: 'images/3dot.png'
         },{  
@@ -65,11 +65,11 @@
                 employeeStatus: true
             },
             lastTrans: {
-                date: 'Jan 2,2022',
+                date: 'Apr 2,2022',
                 sum: '$783.22'
             },
             transStatus: 'Done',
-            endDate: 'Jan 30,2022',
+            endDate: 'Apr 30,2022',
             totalUsed: '$983.22',
             imgDotsUrl: 'images/3dot.png'
         },{
@@ -89,11 +89,11 @@
                 employeeStatus: false
             },
             lastTrans: {
-                date: 'Jan 2,2022',
+                date: 'Aug 2,2022',
                 sum: '$783.22'
             },
             transStatus: 'Pending',
-            endDate: 'Jan 10,2022',
+            endDate: 'Aug 10,2022',
             totalUsed: '$583.22',
             imgDotsUrl: 'images/3dot.png'
         },{
@@ -104,7 +104,7 @@
                 companyUrl: 'https://www.youtube.com/'
             },
             cardData: {
-                cardName: 'Visa',
+                cardName: 'MasterCard',
                 cardNum: '***** 2468'
             },
             userData: {
