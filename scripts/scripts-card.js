@@ -3,23 +3,23 @@
     let tableDynamic = [{
             chek: 'true',
             imgCompUrl: 'images/figma.png',
-            companyData: [{
+            companyData: {
                 companyName: 'Figma',
                 companyUrl: 'https://www.figma.com/'
-            }],
-            cardData: [{
+            },
+            cardData: {
                 cardName: 'Visa',
                 cardNum: '***** 2468'
-                }],
-            userData: [{
+                },
+            userData: {
                 userName: 'Itai Bracha (Employee)',
                 userEmail: 'Itai Bracha31@gmail.com',
                 employeeStatus: true
-            }],
-            lastTrans: [{
+            },
+            lastTrans: {
                 date: 'Jan 2,2022',
                 sum: '$783.22'
-            }],
+            },
             transStatus: 'Pending',
             endDate: 'Jan 12,2022',
             totalUsed: '$783.22',
@@ -27,23 +27,23 @@
         },{
             chek: 'true',
             imgCompUrl: 'images/xd.png',
-            companyData: [{
+            companyData: {
                 companyName: 'Adobe XD',
                 companyUrl: 'https://www.adobe.com/'
-            }],
-            cardData: [{
+            },
+            cardData: {
                 cardName: 'Visa',
                 cardNum: '***** 2468'
-            }],
-            userData: [{
+            },
+            userData: {
                 userName: 'Itai Bracha',
                 userEmail: 'Itai Bracha31@gmail.com',
                 employeeStatus: false 
-            }],
-            lastTrans: [{
+            },
+            lastTrans: {
                 date: 'Jan 2,2022',
                 sum: '$783.22'
-            }],
+            },
             transStatus: 'Done',
             endDate: 'Jan 22,2022',
             totalUsed: '$283.22',
@@ -51,23 +51,23 @@
         },{  
             chek: 'true',
             imgCompUrl: 'images/mailchimp.png',
-            companyData: [{
+            companyData: {
                 companyName: 'Mailchimp',
                 companyUrl: 'https://mailchimp.com/'
-            }],
-            cardData: [{
+            },
+            cardData: {
                 cardName: 'Visa',
                 cardNum: '***** 2468'
-            }],
-            userData: [{
+            },
+            userData: {
                 userName: 'Itai Bracha (Employee)',
                 userEmail: 'Itai Bracha31@gmail.com',
                 employeeStatus: true
-            }],
-            lastTrans: [{
+            },
+            lastTrans: {
                 date: 'Jan 2,2022',
                 sum: '$783.22'
-            }],
+            },
             transStatus: 'Done',
             endDate: 'Jan 30,2022',
             totalUsed: '$983.22',
@@ -75,23 +75,23 @@
         },{
             chek: 'true',
             imgCompUrl: 'images/x.png',
-            companyData: [{
+            companyData: {
                 companyName: 'WIX',
                 companyUrl: 'https://www.wix.com/'
-            }],
-            cardData: [{
+            },
+            cardData: {
                 cardName: 'Visa',
                 cardNum: '***** 2468'
-            }],
-            userData: [{
+            },
+            userData: {
                 userName: 'Itai Bracha',
                 userEmail: 'Itai Bracha31@gmail.com',
                 employeeStatus: false
-            }],
-            lastTrans: [{
+            },
+            lastTrans: {
                 date: 'Jan 2,2022',
                 sum: '$783.22'
-            }],
+            },
             transStatus: 'Pending',
             endDate: 'Jan 10,2022',
             totalUsed: '$583.22',
@@ -99,23 +99,23 @@
         },{
             chek: 'true',
             imgCompUrl: 'images/youtube.png',
-            companyData: [{
+            companyData: {
                 companyName: 'Youtube',
                 companyUrl: 'https://www.youtube.com/'
-            }],
-            cardData: [{
+            },
+            cardData: {
                 cardName: 'Visa',
                 cardNum: '***** 2468'
-            }],
-            userData: [{
+            },
+            userData: {
                 userName: 'Itai Bracha (Employee)',
                 userEmail: 'Itai Bracha31@gmail.com',
                 employeeStatus: true
-            }],
-            lastTrans: [{
+            },
+            lastTrans: {
                 date: 'Jan 2,2022',
                 sum: '$783.22'
-            }],
+            },
             transStatus: 'Done',
             endDate: 'Jan 11,2022',
             totalUsed: '$183.22',
@@ -169,6 +169,16 @@ function createCellsNoRowspanForRowTwo(obj){
     return cellText;
 }
 
+// function for chek
+
+function chekNestedObject(nestOb){    
+    if (typeof nestOb === 'object' && nestOb !== null && !Array.isArray(nestOb)){
+        return true;
+      } else {
+        return false;
+      }
+}
+
 // Main function for dynamic table
 
 function createTbodyForDynamicTable(tableData){ 
@@ -188,16 +198,16 @@ function createTbodyForDynamicTable(tableData){
                 cellData1 = "<td rowspan=\"2\"><img src=" + tableData[i][key] + "></td>";
             } else if (key === "transStatus") {
                 cellData1 = addStyleForStatus(tableData[i], key);                                   
-            } else if (Array.isArray(tableData[i][key]) === true){
-                cellData1 = createCellsNoRowspanForRowOne(tableData[i][key][0]);
+            } else if (chekNestedObject(tableData[i][key]) === true){
+                cellData1 = createCellsNoRowspanForRowOne(tableData[i][key]);
             } else {
                 cellData1 = "<td rowspan = \"2\">"+tableData[i][key]+"</td>";
             }
                                
             tableRows1.innerHTML += cellData1;
                 
-            if (Array.isArray(tableData[i][key]) === true){
-                cellData2 = createCellsNoRowspanForRowTwo(tableData[i][key][0]);
+            if (chekNestedObject(tableData[i][key]) === true){
+                cellData2 = createCellsNoRowspanForRowTwo(tableData[i][key]);
             }             
                     
             tableRows2.innerHTML += cellData2;             
@@ -255,8 +265,7 @@ function removeOldRows(){
     if (parent.hasChildNodes() === true){
         parent.innerHTML = '';       
     }
-}
-        
+}        
     
 // functions for sorting
     
@@ -296,8 +305,8 @@ function sortingTableByTotalUsed(tableData){
 
 function sortingTableByCompanyName(tableData){    
     tableData.sort((a, b) => {
-        let fa = a.companyData[0].companyName.toLowerCase(),
-            fb = b.companyData[0].companyName.toLowerCase();
+        let fa = a.companyData.companyName.toLowerCase(),
+            fb = b.companyData.companyName.toLowerCase();
     
         if (fa < fb) {
             return -1;
@@ -350,15 +359,40 @@ function filterByStatus(tableData){
     createTbodyForDynamicTable(newArr);
 }
 
-function filterByEmployee(tableData){
+function filterByEmployee(tableData){    
     let newArr = tableData.filter(function(el){
-       return el.userData[0].employeeStatus === true;
+       return el.userData.employeeStatus === true;
     });
     removeOldRows();
     createTbodyForDynamicTable(newArr);
 }
 
+// search filter
 
+function forSearch(tableData){
+    function checkSubstring(rowData){ 
+        let search = document.getElementById('mySearch');
+        let quest = search.value.toUpperCase();
+        for (let key in rowData){            
+            if (chekNestedObject(rowData[key]) === true){
+                for (let prop in rowData[key]){
+                    if (prop !=='employeeStatus'){ 
+                        if (rowData[key][prop].toUpperCase().indexOf(quest) > -1){
+                            return true;
+                        }   
+                    }                                        
+                }
+            } else if (rowData[key].toUpperCase().indexOf(quest) > -1){                
+                return true;
+            }            
+        }
+        return false;
+    }
+         
+    let newArr = tableData.filter(checkSubstring);    
+    removeOldRows();
+    createTbodyForDynamicTable(newArr);
+}
  
 
 
