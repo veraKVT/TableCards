@@ -259,6 +259,7 @@ let tableFootNumbers = ['1','2','3','4'];
         return result;
     }
 
+// removing rows
 
 function removeOldRows(){  
     let parent = document.getElementById('myTbody');

@@ -1,0 +1,89 @@
+table{
+    width: 100%;    
+    border-radius: 30px;
+    border-collapse: collapse;
+    background-color: #FFFFFF;    
+}
+
+thead{
+    border-collapse: collapse;
+    border-bottom: 2px solid #D9D9D9;
+    height: 75px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    color:#6B6F7B;
+    
+}
+
+.under{
+    font-size: 14px;
+    color: #6B6F7B;
+    font-weight: 600;
+    vertical-align: text-top;
+    height: 40px;
+    padding: 3px 0px;
+ }
+
+.upline{
+    color: #313A4E;
+    font-size: 16px;
+    font-weight: 600;
+    vertical-align: bottom;
+    height: 40px;
+    padding: 3px 0px;
+}
+
+.dot{
+    padding: 5px 25px 5px 5px;
+}
+
+.kvadro{
+    padding: 5px 15px 5px 25px;
+}
+
+.kvadro input{
+    height: 20px;
+    width: 20px;
+    border: 1px solid #E1E1E1;
+}
+
+.status{
+    content: "\26AC";
+    font-size: 16px;
+    font-weight: 800;
+    color: #17E383;
+}
+
+.status1{
+    content: "\26AC";
+    font-size: 16px;
+    font-weight: 800;
+    color: #FF9548;
+}
+
+.foot-block{
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 5px;
+    height: 75px;
+}
+
+.footnum{
+    width: 45px;
+    height: 45px;
+    border: 1px solid #6B6F7B;         
+    border-radius: 48px;
+    color: #313A4E;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 45px;
+    text-align: center;
+    margin: 8px 8px;
+}
+
+    
+
+
+
+
